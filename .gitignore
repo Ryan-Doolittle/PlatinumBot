@@ -361,3 +361,9 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/.venv
+/src/settings/bot.json
+/src/settings/cftools.json
+/src/settings/discord.json
+/users/whitelisted_users.json
+/gameserver_info.json
