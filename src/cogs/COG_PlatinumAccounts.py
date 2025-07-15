@@ -119,8 +119,14 @@ class PlatinumAccounts(commands.Cog):
             await bot_log_embed(self.bot, interaction, "give_money", Color.red(), "Command Failed\nUser does not have any valid roles")
             return
 
-        await interaction.followup.send("test")
-        await bot_log_embed(self.bot, interaction, "give_money", Color.green(), f"Command Success\n{member.display_name} was given " + '${:,}'.format(amount) + f"\n{reason}")
+        success = give_player_money(member.id, self.registering_incentive)
+        if success:
+            await interaction.followup.send("Success")
+            await bot_log_embed(self.bot, interaction, "give_money", Color.green(), f"Command Success\n{member.display_name} was given " + '${:,}'.format(amount) + f"\n{reason}")
+            return
+        await interaction.followup.send("Failed")
+        await bot_log_embed(self.bot, interaction, "give_money", Color.green(), f"Command Failed\n{member.display_name} was not found " + '${:,}'.format(amount) + f"\n{reason}")
+
 
 
 

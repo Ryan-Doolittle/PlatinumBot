@@ -23,4 +23,6 @@ def give_player_money(discord_id, amount):
     atm = get_player_atm(steam64_id)
     if atm:
         atm["currentMoney"] += amount
-    save_file(f"../dz-master/servers/1/profiles/LBmaster/Data/LBBanking/Players/{steam64_id}.json", atm)
+        save_file(f"../dz-master/servers/1/profiles/LBmaster/Data/LBBanking/Players/{steam64_id}.json", atm)
+        return True
+    return False
