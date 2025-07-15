@@ -58,7 +58,7 @@ class PlatinumAccounts(commands.Cog):
     @slash_command(name="whitelist", description="Whitelist a user using their STEAM64")
     async def whitelist(self, interaction: Interaction, steam64:str, member:Member, comment:str):
         colorized_print("COMMAND", f"{interaction.user.name} used {self.__cog_name__}.{inspect.currentframe().f_code.co_name} at {datetime.datetime.now()}")
-        await interaction.response.defer(ephemeral=True)
+        await interaction.response.defer(ephemeral=False)
         bot_log_channel = interaction.guild.get_channel(int(self.bot.server_settings["bot_log_channel"]))
         
         # Check if user can use this command
