@@ -45,6 +45,7 @@ async def _update_ATM_leaderboard(bot):
         await atm_leaderboard_message.edit(embed=embed)
 
         await asyncio.sleep(bot.server_settings["update_interval"])
+        colorized_print("DEBUG", "Updating ATM Leaderboard")
 
 
 async def _update_killfeed(bot):
@@ -98,6 +99,7 @@ async def _update_killfeed(bot):
         history["last_feed_date"] = last_check
         save_file("src/temp/killfeed_history.json", history)
         await asyncio.sleep(bot.server_settings["update_interval"])
+        colorized_print("DEBUG", "Updating kill feed")
 
 
 async def _check_gameserver(bot):
@@ -134,3 +136,4 @@ async def _check_gameserver(bot):
                 colorized_print("ERROR", e)
 
         await asyncio.sleep(bot.server_settings["update_interval"] * 2)
+        colorized_print("DEBUG", "Updating server status")
